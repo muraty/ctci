@@ -11,8 +11,12 @@ func main() {
 	for i := 0; i < 10; i++ {
 		l.Add(&Node{value: i})
 	}
+
 	// print all elements
 	l.PrintElements()
+
+	// length of the elements
+	fmt.Println("Length:", l.Len())
 
 	// find an element
 	if elem := l.Find(4); elem != nil {
@@ -143,15 +147,39 @@ func (l *LinkedList) Tail() *Node {
 	return l.tail
 }
 
-// print all the elements inside the list
-func (l *LinkedList) PrintElements() {
-	head_node := l.Head()
+// get the length of the list
+func (l *LinkedList) Len() int {
+	count := 0
+	current_node := l.Head()
 	for {
-		fmt.Println("value:", head_node.value)
+		if current_node != nil {
+			count++
+			current_node = current_node.Next()
+		} else {
+			return count
+		}
+	}
+}
+
+// get all the elements inside the list
+func (l *LinkedList) GetElements() []int {
+	head_node := l.Head()
+	var node_slice []int
+	for {
+		node_slice = append(node_slice, head_node.value)
 		if head_node.next != nil {
 			head_node = head_node.next
 		} else {
-			break
+			return node_slice
 		}
+	}
+}
+
+// print all the elements inside the list
+func (l *LinkedList) PrintElements() {
+	// print all elements
+	n := l.GetElements()
+	for _, elem := range n {
+		fmt.Println(elem)
 	}
 }
