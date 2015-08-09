@@ -10,9 +10,9 @@ type ArrayList struct {
 	last_index int
 }
 
-// get the length of the list
+// get the length of the list independently from underlying implementation
 func (arr *ArrayList) Len() int {
-	return len(arr.list)
+	return arr.last_index
 }
 
 // get all the elements

@@ -9,7 +9,7 @@ func TestLen(t *testing.T) {
 	l.Init(10)
 
 	// test initial size
-	if l.Len() != 10 {
+	if l.Len() != 0 {
 		t.Error("For length",
 			"Expected", 10,
 			"got", l.Len())
@@ -18,7 +18,7 @@ func TestLen(t *testing.T) {
 		l.Set(i)
 	}
 	// test new size
-	if l.Len() != 20 {
+	if l.Len() != 15 {
 		t.Error("For length",
 			"Expected", 20,
 			"got", l.Len())
@@ -28,7 +28,7 @@ func TestLen(t *testing.T) {
 		l.Set(i)
 	}
 	// test new size
-	if l.Len() != 40 {
+	if l.Len() != 30 {
 		t.Error("For length",
 			"Expected", 40,
 			"got", l.Len())
