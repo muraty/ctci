@@ -1,41 +1,8 @@
-package main
+package ctci
 
 import (
 	"fmt"
 )
-
-func main() {
-	l := LinkedList{}
-
-	// Add element
-	for i := 0; i < 10; i++ {
-		l.Add(&Node{value: i})
-	}
-
-	// print all elements
-	l.PrintElements()
-
-	// length of the elements
-	fmt.Println("Length:", l.Len())
-
-	// find an element
-	if elem := l.Find(4); elem != nil {
-		fmt.Println(*elem)
-	}
-
-	// Delete element
-	fmt.Println(l.Delete(0))
-	fmt.Println(l.Delete(3))
-	fmt.Println(l.Delete(4))
-	fmt.Println(l.Delete(9))
-	fmt.Println(l.Delete(19))
-	l.PrintElements()
-
-	// reverse the list
-	l.Reverse()
-	l.PrintElements()
-
-}
 
 // unit element of the list
 type Node struct {
