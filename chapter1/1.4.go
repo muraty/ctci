@@ -9,6 +9,7 @@ package chapter1
 // Input: "Mr John Smith      "
 // Output: "Mr%20Dohn%20Smith"
 
+// Replace whitespace characters with %20 string
 func ReplaceSpaces(s *string) {
 	exchange_string := "%20"
 	temp := ""
@@ -23,6 +24,7 @@ func ReplaceSpaces(s *string) {
 	*s = temp
 }
 
+// trim space characters at the end of the string
 func trimString(s *string) {
 	temp := ""
 	st := *s
