@@ -15,6 +15,11 @@ func (n Node) Next() *Node {
 	return n.next
 }
 
+// set next node element of the Node
+func (n *Node) SetNext(node *Node) {
+	n.next = node
+}
+
 // set value of the Node
 func (n *Node) SetValue(i int) {
 	n.value = i
