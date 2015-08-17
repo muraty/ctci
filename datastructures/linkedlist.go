@@ -15,8 +15,13 @@ func (n Node) Next() *Node {
 	return n.next
 }
 
+// set value of the Node
+func (n *Node) SetValue(i int) {
+	n.value = i
+}
+
 // get value of the Node
-func (n Node) Value() int {
+func (n Node) GetValue() int {
 	return n.value
 }
 
@@ -78,7 +83,7 @@ func (l *LinkedList) Delete(i int) bool {
 	current_node := head_node
 	previous_node := current_node
 	for {
-		if current_node.Value() == i {
+		if current_node.GetValue() == i {
 			if current_node == head_node {
 				if l.head.next != nil {
 					l.head = l.head.next
