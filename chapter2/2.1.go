@@ -5,6 +5,7 @@ import datastructures "ctci/datastructures"
 // Write code to remove duplicates from an unsorted linked list.
 // How would you solve this problem if a temporary buffer is not allowed?
 
+// Removes duplicate nodes inside the given linkedlist
 func RemoveDuplicates(l *datastructures.LinkedList) {
 	current := l.Head()
 	for current != nil {
