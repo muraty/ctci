@@ -35,6 +35,16 @@ type LinkedList struct {
 	head, tail *Node
 }
 
+// set head of the list
+func (l *LinkedList) SetHead(n *Node) {
+	l.head = n
+}
+
+// set head of the list
+func (l *LinkedList) SetTail(n *Node) {
+	l.tail = n
+}
+
 // adds element to the tail
 func (l *LinkedList) Add(n *Node) {
 	if l.head != nil {
