@@ -40,9 +40,9 @@ func (l *LinkedList) SetHead(n *Node) {
 	l.head = n
 }
 
-// set head of the list
+// set tail of the list
 func (l *LinkedList) SetTail(n *Node) {
-	l.tail = n
+	l.tail.SetNext(n)
 }
 
 // adds element to the tail
