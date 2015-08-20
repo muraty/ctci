@@ -11,7 +11,7 @@ type sliceTestPair struct {
 	kth    int
 }
 
-func initialize() []sliceTestPair {
+func initializeSlice() []sliceTestPair {
 	orig := datastructures.LinkedList{}
 	for i := 0; i < 10; i++ {
 		n := &datastructures.Node{}
@@ -34,7 +34,7 @@ func initialize() []sliceTestPair {
 }
 
 func TestSlice(t *testing.T) {
-	sliceTests := initialize()
+	sliceTests := initializeSlice()
 	for _, test := range sliceTests {
 		elem := Slice(test.orig, test.kth)
 		if elem == nil {
