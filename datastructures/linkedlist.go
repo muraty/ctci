@@ -138,6 +138,10 @@ func (l *LinkedList) Tail() *Node {
 func (l *LinkedList) Len() int {
 	count := 0
 	current_node := l.Head()
+
+	if l.DetectLoop() {
+		return -1
+	}
 	for {
 		if current_node != nil {
 			count++
@@ -148,7 +152,34 @@ func (l *LinkedList) Len() int {
 	}
 }
 
-// get all the elements inside the list
+// detects whether linkedlist has an infinite loop
+func (l *LinkedList) DetectLoop() bool {
+	head := l.Head()
+	slowRunner := head
+	fastRunner := head.Next()
+
+	// Move ahead two different pointers; slow & fast
+	for {
+		// There is no loop
+		if slowRunner == nil || fastRunner == nil {
+			return false
+		}
+		// There is no loop
+		if slowRunner.Next() == nil || fastRunner.Next() == nil {
+			return false
+		}
+		// Move slow runner one point
+		slowRunner = slowRunner.Next()
+		// Move fast runner two points
+		fastRunner = fastRunner.Next().Next()
+		// Are they matched ?
+		if slowRunner == fastRunner {
+			return true
+		}
+	}
+}
+
+// get all the elements from the list
 func (l *LinkedList) GetElements() []int {
 	head_node := l.Head()
 	var node_slice []int
@@ -160,6 +191,39 @@ func (l *LinkedList) GetElements() []int {
 			return node_slice
 		}
 	}
+}
+
+// get partial elements of the list in order to given size parameter
+func (l *LinkedList) GetPartialElements(size int) []int {
+	head := l.Head()
+	var node_slice []int
+	length := 0
+
+	// Handle negative values
+	if size < 0 {
+		size = 0
+	}
+
+	// is there loop inside the list ?
+	if l.Len() < 0 {
+		// assign a random value as length for looped linkedlist cases
+		length = 100
+	} else {
+		length = l.Len()
+	}
+
+	// Does size parameter exceed the length of the list ?
+	if size > length {
+		size = length
+	}
+
+	for i := 0; i < size; i++ {
+		node_slice = append(node_slice, head.value)
+		if head.next != nil {
+			head = head.next
+		}
+	}
+	return node_slice
 }
 
 // print all the elements inside the list
