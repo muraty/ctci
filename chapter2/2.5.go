@@ -15,25 +15,6 @@ import ds "ctci/datastructures"
 // Input:(6 -> 1 -> 7) + (2 -> 9 -> 5).Thatis,617 + 295.
 // Output: 9 -> 1 -> 2.That is, 912.
 
-// func main() {
-// 	l1 := ds.LinkedList{}
-// 	l2 := ds.LinkedList{}
-
-// 	for i := 1; i < 4; i++ {
-// 		n := ds.Node{}
-// 		n.SetValue(i)
-// 		l1.Add(&n)
-// 	}
-// 	for i := 1; i < 5; i++ {
-// 		n := ds.Node{}
-// 		n.SetValue(i)
-// 		l2.Add(&n)
-// 	}
-// 	fmt.Println(SumLinkedNumberReverse(l1, l2))
-// 	fmt.Println(SumLinkedNumberForward(l1, l2))
-
-// }
-
 // Sum up two linked list in reverse order
 // Input:(7-> 1 -> 6) + (5 -> 9 -> 2).Thatis,617 + 295.
 // Output: 2 -> 1 -> 9.That is, 912.
