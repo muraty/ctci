@@ -92,6 +92,23 @@ func (l *LinkedList) Find(i int) *Node {
 	}
 }
 
+// Copy given list
+func (l *LinkedList) Copy() *LinkedList {
+	new_list := LinkedList{}
+	head := l.Head()
+	for {
+		if head == nil {
+			break
+		}
+		n := Node{}
+		n.SetValue(head.GetValue())
+		new_list.Add(&n)
+
+		head = head.Next()
+	}
+	return &new_list
+}
+
 func (l *LinkedList) Delete(i int) bool {
 	head_node := l.Head()
 	tail_node := l.Tail()
